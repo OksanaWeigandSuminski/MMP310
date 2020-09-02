@@ -119,7 +119,7 @@ blockquote p::after {
   }
   
   .project a {
-    font-size: 1.25px;
+    font-size: 1.25em;
   }
   a {
     color: white;
