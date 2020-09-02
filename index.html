@@ -1,40 +1,60 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<title>My Class Portfolio</title>
-	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>ows_portfolio</title>
+  <meta name="author" content="name">
+  <meta name="description" content="description here">
+  <meta name="keywords" content="keywords,here">
+  <link rel="stylesheet" href="style.css" type="text/css">
+  <script src="index.js"></script>
 </head>
+
 <body>
-	<div id="container">
+  <header>
+    <nav class="fixed-nav-bar">
+      <ul>
+        <li><a href="contact.html">contact</a></li>
+        <li><a href="#work">work</a></li>
+        <li><a href="about.html">about</a></li>
+        <li style="float:left"><a class="active" href="#">oksana weigand suminski</a></li>
+      </ul>
+    </nav>
+  </header>
+  <div>
+    <img src="images/home.png" alt="Colorado National Monument"
+      title="Colorado National Monument by Nicholas Weigand Suminski" class="background-image">
+    <img src="images/OWS_logo.svg" alt="Logo" class="logo">
+  </div>
+  <div id="container">
+    <main>
+      <section id="work">
+        <h1>work</h1>
+        <div id="portfolio">
 
-		<div id="header">
-			<h1>My Class Portfolio</h1>
-				<ul>
-					<li><a href="index.html">Home</a></li>
-					<li><a href="about.html">About</a></li>
-				</ul>
-		</div>
-
-		<div id="portfolio">
-
-			<div class="project">
-				<img src="thumbnail.jpg" alt="thumbnail">
-				<a href="#">Project #1</a>
-			</div>
-
-			<div class="project">
-				<img src="thumbnail.jpg" alt="thumbnail">
-				<a href="#">Project #2</a>
-			</div>
-
-			<div class="project">
-				<img src="thumbnail.jpg" alt="thumbnail">
-				<a href="#">Project #3</a>
-			</div>
-
-		</div>
-
-	</div>
+          <div class="project">
+            <img src="thumbnail.jpg" alt="thumbnail">
+            <a href="#">Project #1</a>
+          </div>
+    
+          <div class="project">
+            <img src="thumbnail.jpg" alt="thumbnail">
+            <a href="#">Project #2</a>
+          </div>
+    
+          <div class="project">
+            <img src="thumbnail.jpg" alt="thumbnail">
+            <a href="#">Project #3</a>
+          </div>
+    
+        </div>
+    </main>
+</div>
+  <footer>
+    <p>&copy;2020 oksana weigand suminski, portfolio</p>
+  </footer>
 </body>
+
 </html>
