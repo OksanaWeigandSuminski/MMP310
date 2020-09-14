@@ -10,7 +10,7 @@ function preload(){
 }
 
 function setup (){
-    createCanvas(1500,1000);
+    createCanvas(800,600);
     speakerX = width/2;
     speakerY = height/2;
     imageMode(CENTER)
