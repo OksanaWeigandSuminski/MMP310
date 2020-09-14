@@ -1,5 +1,5 @@
 var speaker;
-var speakerJump;
+var speakerWalk;
 var speakerX;
 var speakerY;
 var speakerSpeed = 3;
@@ -28,11 +28,11 @@ function draw (){
         speakerIsWalking = true;
     }
     if (keyIsDown(UP_ARROW)) {
-        speakerX -= speakerSpeed;
+        speakerY -= speakerSpeed;
         speakerIsWalking = true;
     }
     if (keyIsDown(DOWN_ARROW)) {
-        speakerX += speakerSpeed;
+        speakerY += speakerSpeed;
         speakerIsWalking = true;
     }
 
