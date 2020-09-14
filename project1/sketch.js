@@ -3,10 +3,10 @@ var speakerWalk;
 var speakerX;
 var speakerY;
 var speakerSpeed = 3;
-var speakerIsWalking = false;
+//var speakerIsWalking = false;
 function preload(){
-    speaker = loadImage ("speaker.gif");
-    speakerWalk = loadImage ("speakerWalks.gif");
+    speaker = loadImage ("speaker500.gif");
+    speakerWalk = loadImage ("speakerW500.gif");
 }
 
 function setup (){
@@ -18,6 +18,8 @@ function setup (){
 
 function draw (){
     background(220)
+
+    var speakerIsWalking = false;
 
     if (keyIsDown(RIGHT_ARROW)) {
         speakerX += speakerSpeed;
