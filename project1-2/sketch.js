@@ -4,8 +4,10 @@ var speakerX;
 var speakerY;
 var speakerSpeed = 3;
 var buildings;
-//let timer = 0;
 var hand;
+var timer = 0;
+var interval = 2000; // how long to wait between attack
+var attackTime = 5000; // length of attack
 
 var bgBuildingsX = [50, 800, 1700];
 var bgBuildingsY = [400, 200, 100];
@@ -21,8 +23,8 @@ function setup (){
     speakerX = width/2;
     speakerY = height/2;
     imageMode(CENTER)
-    img = image(hand, 300, 400)
-    setInterval(attack, 2000);
+    //img = image(hand, 300, 400)
+    //setInterval(attack, 2000);
 }
 
 function draw (){
@@ -56,17 +58,17 @@ function draw (){
     }else {
         image(speaker, speakerX, speakerY);
     }
-    // var x = random(width);
-    // // var y = random(height);
-    // var y = 500;
-    // if (millis() >=2000+timer){
-    //     image(hand, x, y);
-    //     timer = millis();
-    // }
-    act(attack);
+
+    timer++; // increase timer each frame
+  // when timer goes above interval
+  if (timer > interval) {
+    image(hand, random(width), 500);
+    if (timer > interval + attackTime) {
+      // reset timer 
+      timer = 0;
+    }
+}
+
        
 }
 
-function attack(){
-    img = image(hand, random(width), 500);
-}
