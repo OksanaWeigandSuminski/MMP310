@@ -1,30 +1,30 @@
-var speaker;
-var speakerWalk;
-var speakerX;
-var speakerY;
-var speakerSpeed = 3;
+var runner;
+var runnerWalk;
+var runnerX;
+var runnerY;
+var runnerSpeed = 3;
 var buildings;
 var hand;
+var handX;
 var timer = 0;
-var interval = 2000; // how long to wait between attack
-var attackTime = 5000; // length of attack
+var interval = 100; // how long to wait between attack
+var attackTime = 50; // length of attack
 
 var bgBuildingsX = [50, 800, 1700];
 var bgBuildingsY = [400, 200, 100];
 function preload(){
-    speaker = loadImage("F1.png");
-    speakerWalk = loadImage("Inception_Piskel.gif");
+    runner = loadImage("F1.png");
+    runnerCycle = loadImage("Inception_Piskel.gif");
     buildings = loadImage("largeBuildings.png");
     hand = loadImage("hand.png");
+    runningLeft = loadImage("runningLeft.gif");
 }
 
 function setup (){
     createCanvas(1920, 1080);
-    speakerX = width/2;
-    speakerY = height/2;
+    runnerX = width/2;
+    runnerY = height/2;
     imageMode(CENTER)
-    //img = image(hand, 300, 400)
-    //setInterval(attack, 2000);
 }
 
 function draw (){
@@ -34,41 +34,41 @@ function draw (){
         image(buildings, bgBuildingsX[i], bgBuildingsY[i]);
     }
    
-    var speakerIsWalking = false;
+    var runnerIsRunning = false;
 
     if (keyIsDown(RIGHT_ARROW)) {
-        speakerX += speakerSpeed;
-        speakerIsWalking = true;
+        runnerX += runnerSpeed;
+        runnerIsRunning = true;
     }
     if (keyIsDown(LEFT_ARROW)) {
-        speakerX -= speakerSpeed;
-        speakerIsWalking = true;
+        runnerX -= runnerSpeed;
+        runnerIsRunning = true;
     }
     if (keyIsDown(UP_ARROW)) {
-        speakerY -= speakerSpeed;
-        speakerIsWalking = true;
+        runnerY -= runnerSpeed;
+        runnerIsRunning = true;
     }
     if (keyIsDown(DOWN_ARROW)) {
-        speakerY += speakerSpeed;
-        speakerIsWalking = true;
+        runnerY += runnerSpeed;
+        runnerIsRunning = true;
     }
 
-    if (speakerIsWalking) {
-        image(speakerWalk, speakerX, speakerY);
+    if (runnerIsRunning && keyIsDown(RIGHT_ARROW)) {
+        image(runnerCycle, runnerX, runnerY);
+    }else if(runnerIsRunning && keyIsDown(LEFT_ARROW)) {
+        image(runningLeft, runnerX, runnerY);
     }else {
-        image(speaker, speakerX, speakerY);
+        image(runner, runnerX, runnerY);
     }
 
     timer++; // increase timer each frame
-  // when timer goes above interval
-  if (timer > interval) {
-    image(hand, random(width), 500);
-    if (timer > interval + attackTime) {
-      // reset timer 
-      timer = 0;
+    // when timer goes above interval
+    if (timer > interval) {
+        image(hand, handX, 200);
+        if (timer > interval + attackTime) {
+        // reset timer 
+        timer = 0;
+        handX = random(width); //hand appearance
+        }
     }
 }
-
-       
-}
-
