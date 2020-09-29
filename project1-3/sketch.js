@@ -56,7 +56,8 @@ function draw() {
         runnerY + runner.height / 2 > handY - hand.height / 2 &&
         timer < interval &&
         frameCount % 60 > 55) {
-        background(247, 203, 1);
+        fill(247, 203, 1);
+        rect(handX, 0, handX + hand.width, height);
     }
     if (runnerIsRunning && keyIsDown(RIGHT_ARROW)) {
         image(runnerCycle, runnerX, runnerY);
