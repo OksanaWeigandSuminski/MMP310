@@ -2,7 +2,7 @@ var runner;
 var runnerWalk;
 var runnerX;
 var runnerY;
-var runnerSpeed = 3;
+var runnerSpeed = 9;
 var buildings;
 var hand;
 var handX;
@@ -21,7 +21,7 @@ function preload(){
 }
 
 function setup (){
-    createCanvas(1920, 1080);
+    createCanvas(windowWidth, windowHeight);
     runnerX = width/2;
     runnerY = height/2;
     imageMode(CENTER)
