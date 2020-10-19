@@ -1,11 +1,9 @@
 var runner;
-//var runnerWalk;
 var runnerX;
 var runnerY;
 var runnerMainX;
 var runnerMainY;
 var runnerSpeed = 15;
-//var buildings;
 var hand;
 var handX;
 var handY = 200;
@@ -39,6 +37,9 @@ function setup() {
     runnerX = width / 2;
     runnerY = height / 2;
     imageMode(CENTER)
+    blackWidow.delay(1000)
+    // scene = 'game';
+    // setupGame();
 }
 function draw(){
     //scene manager
@@ -90,9 +91,11 @@ function main() {
         runnerY - runner.height / 2 < handY + hand.height / 2 &&
         runnerY + runner.height / 2 > handY - hand.height / 2 &&
         timer < interval &&
-        frameCount % 60 > 55) {
-        fill(247, 203, 1);
-        rect(handX, 0, handX + hand.width, height);
+        frameCount % 60 > 30) {
+        // fill(247, 203, 1);
+        // rect(handX, 0, handX + hand.width, height);
+        image(hand, handX, handY)
+        //put image of the hand instead
     }
     if (runnerIsRunning && keyIsDown(RIGHT_ARROW)) {
         image(runnerCycle, runnerX, runnerY);
@@ -173,11 +176,12 @@ function game(){
         runnerYSpeed += GRAVITY;
     } else {
         runnerYSpeed = 0;
+        runnerIsJumping = false;
     }
     // 32 is a space key
     if (!runnerIsJumping && keyIsDown(32)){
-        runnerYSpeed = -30;
-        //runnerIsJumping = true;
+        runnerYSpeed = -40;
+        runnerIsJumping = true;
     } 
     runnerY += runnerYSpeed;
     if (runnerIsJumping){
@@ -189,7 +193,7 @@ function game(){
     for (let i = 0; i < spiderPositions.length; i++){
         let x = spiderPositions[i];
         spider(x); // draw spider and detect player collision
-        spiderPositions[i] -= 5;
+        spiderPositions[i] -= 15;
         //if runner gets past last spider
         if (i == spiderPositions.length - 1 && runnerX > x){
             scene = 'win';
@@ -209,7 +213,7 @@ function win(){
 }
 function lose(){
     textSize(150);
-    fill("black");
+    fill("white");
     text("You lost!", width/2, height/2);
     textSize(80);
     text("Hit R to Try Again", width/2, height/2+100);
@@ -222,10 +226,10 @@ function spider(x){
     let y = height - groundY;
     image(blackWidow, x, y);
     //collision
-    if (runnerX - runner.width / 2 < x + blackWidow.width / 2 &&
-        runnerX + runner.width / 2 > y - blackWidow.width / 2 &&
-        runnerY - runner.height / 2 < x + blackWidow.height / 2 &&
-        runnerY + runner.height / 2 > y - blackWidow.height / 2){
+    if (runnerX - runnerCycle.width / 3 < x + blackWidow.width / 3 &&
+        runnerX + runnerCycle.width / 3 > x - blackWidow.width / 3 &&
+        runnerY - runnerCycle.height / 3 < y + blackWidow.height / 3 &&
+        runnerY + runnerCycle.height / 3 > y - blackWidow.height / 3){
         // change the scene
         scene = 'lose';
 
