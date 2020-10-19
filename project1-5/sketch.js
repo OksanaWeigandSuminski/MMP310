@@ -6,9 +6,9 @@ var runnerMainY;
 var runnerSpeed = 15;
 var hand;
 var handX;
-var handY = 200;
+var handY = 300;
 var timer = 0;
-var interval = 150; // how long to wait between attack
+var interval = 100; // how long to wait between attack
 var attackTime = 50; // length of attack
 var youLost = false;
 var blackWidow;
@@ -29,7 +29,7 @@ function preload() {
     runningLeft = loadImage("runningLeft.gif");
     lost = loadImage("onTheFloor.png");
     blackWidow = loadImage("blackWidow.gif");
-    runnerJump = loadImage ("F1.png");
+    runnerJump = loadImage("F1.png");
 }
 
 function setup() {
@@ -38,28 +38,26 @@ function setup() {
     runnerY = height / 2;
     imageMode(CENTER)
     blackWidow.delay(1000)
-    // scene = 'game';
-    // setupGame();
 }
-function draw(){
+function draw() {
     //scene manager
-    if (scene == "main"){
+    if (scene == "main") {
         main();
     }
-    else if (scene == "game"){
+    else if (scene == "game") {
         game();
     }
-    else if (scene == "win"){
+    else if (scene == "win") {
         win();
     }
-    else if (scene == "lose"){
+    else if (scene == "lose") {
         lose();
     }
 }
 //scene functions
-function setupMain(){
+function setupMain() {
     runnerX = runnerMainX;
-    runnerY = runnerMainY; 
+    runnerY = runnerMainY;
     scene = "main";
 }
 
@@ -86,14 +84,9 @@ function main() {
         }
     }
     //collision between runner and hand
-    if (runnerX - runner.width / 2 < handX + hand.width / 2 &&
-        runnerX + runner.width / 2 > handX - hand.width / 2 &&
-        runnerY - runner.height / 2 < handY + hand.height / 2 &&
-        runnerY + runner.height / 2 > handY - hand.height / 2 &&
+    if (collision() && 
         timer < interval &&
         frameCount % 60 > 30) {
-        // fill(247, 203, 1);
-        // rect(handX, 0, handX + hand.width, height);
         image(hand, handX, handY)
         //put image of the hand instead
     }
@@ -120,17 +113,16 @@ function main() {
     timer++; // increase timer each frame
     // when timer goes above interval
     if (timer > interval && !youLost) {
-        if (
-            runnerX - runner.width / 2 < handX + hand.width / 2 &&
-            runnerX + runner.width / 2 > handX - hand.width / 2 &&
-            runnerY - runner.height / 2 < handY + hand.height / 2 &&
-            runnerY + runner.height / 2 > handY - hand.height / 2) {
+        if (collision()) {
             youLost = true;
         }
-        if (timer > interval + attackTime) {
+        if (timer > interval) {
+            image(hand, handX, 200);
+            if (timer > interval + attackTime) {
             // reset timer 
             timer = 0;
             handX = random(width); //hand appearance
+            }
         }
     }
     if (youLost) {
@@ -141,97 +133,108 @@ function main() {
         fill("white")
         textFont("Comic Sans Ms")
         textAlign(CENTER, CENTER)
-        text("Hit Enter to Play", width/2, height/2)
+        text("Hit Enter to Play", width / 2, height / 2)
         // enter event
-        if (keyIsDown(ENTER)){
+        if (keyIsDown(ENTER)) {
             setupGame();
         }
     }
 }
-function setupGame(){
+function setupGame() {
     // save runner's map position
     runnerMainX = runnerX;
     runnerMainY = runnerY;
     // move runer to game ground
     runnerX = 250;
-    runnerY = height - 400;
+    runnerY = height - 300;
     // add spiders
     spiderPositions = []; // reset all spider positions
-    var spiderNumber = random(8,12);
-    for (let i = 0; i < spiderNumber; i++){
+    var spiderNumber = random(8, 12);
+    for (let i = 0; i < spiderNumber; i++) {
         // add an x position for a new spider half a canvas away from one another + random value
-        spiderPositions.push(random(width/2, width) + i * width/2);
+        spiderPositions.push(random(width / 2, width) + i * width / 2);
     }
     scene = "game";
 }
-function game(){
-    background ("darkblue");
+function game() {
+    background("darkblue");
     noStroke();
     fill('darkgreen');
     rect(0, height - groundY, width, groundY);
     //jumping and falling
-    
+
     // apply gravity
-    if (runnerY < height - 400){
+    if (runnerY < height - 300) {
         runnerYSpeed += GRAVITY;
     } else {
         runnerYSpeed = 0;
         runnerIsJumping = false;
     }
     // 32 is a space key
-    if (!runnerIsJumping && keyIsDown(32)){
+    if (!runnerIsJumping && keyIsDown(32)) {
         runnerYSpeed = -40;
         runnerIsJumping = true;
-    } 
+    }
     runnerY += runnerYSpeed;
-    if (runnerIsJumping){
+    if (runnerIsJumping) {
         image(runnerJump, runnerX, runnerY);
     } else {
-        image(runnerCycle,runnerX, runnerY);
+        image(runnerCycle, runnerX, runnerY);
     }
 
-    for (let i = 0; i < spiderPositions.length; i++){
+    for (let i = 0; i < spiderPositions.length; i++) {
         let x = spiderPositions[i];
         spider(x); // draw spider and detect player collision
-        spiderPositions[i] -= 15;
+        spiderPositions[i] -= 10;
         //if runner gets past last spider
-        if (i == spiderPositions.length - 1 && runnerX > x){
+        if (i == spiderPositions.length - 1 && runnerX > x) {
             scene = 'win';
         }
     }
 }
-function win(){
+function win() {
     textSize(150);
     fill("white");
-    text("You win!", width/2, height/2);
+    text("You win!", width / 2, height / 2);
     textSize(80);
-    text("Hit M to Return to Map", width/2, height/2+100);
+    text("Hit M to Return to Map", width / 2, height / 2 + 100);
     // m key
-    if (keyIsDown(77)){
+    if (keyIsDown(77)) {
         setupMain();
+        location.reload();
     }
 }
-function lose(){
+function lose() {
     textSize(150);
     fill("white");
-    text("You lost!", width/2, height/2);
+    text("You lost!", width / 2, height / 2);
     textSize(80);
-    text("Hit R to Try Again", width/2, height/2+100);
+    text("Hit R to Try Again", width / 2, height / 2 + 100);
     // m key
-    if (keyIsDown(82)){
+    if (keyIsDown(82)) {
         setupGame();
     }
 }
-function spider(x){
+function spider(x) {
     let y = height - groundY;
     image(blackWidow, x, y);
-    //collision
-    if (runnerX - runnerCycle.width / 3 < x + blackWidow.width / 3 &&
-        runnerX + runnerCycle.width / 3 > x - blackWidow.width / 3 &&
-        runnerY - runnerCycle.height / 3 < y + blackWidow.height / 3 &&
-        runnerY + runnerCycle.height / 3 > y - blackWidow.height / 3){
+    //collision with spiders
+    if (runnerX - runnerCycle.width / 4 < x + blackWidow.width / 4 &&
+        runnerX + runnerCycle.width / 4 > x - blackWidow.width / 4 &&
+        runnerY - runnerCycle.height / 4 < y + blackWidow.height / 4 &&
+        runnerY + runnerCycle.height / 4 > y - blackWidow.height / 4) {
         // change the scene
         scene = 'lose';
 
-        }
+    }
+}
+function collision() {
+    if (runnerX - runner.width / 2 < handX + hand.width / 2 &&
+        runnerX + runner.width / 2 > handX - hand.width / 2 &&
+        runnerY - runner.height / 2 < handY + hand.height / 2 &&
+        runnerY + runner.height / 2 > handY - hand.height / 2) {
+        return true;
+    } else {
+        return false;
+    }
 }

@@ -8,7 +8,7 @@ var hand;
 var handX;
 var handY = 200;
 var timer = 0;
-var interval = 150; // how long to wait between attack
+var interval = 50; // how long to wait between attack
 var attackTime = 50; // length of attack
 var youLost = false;
 
@@ -50,14 +50,12 @@ function draw() {
         }
     }
     //collision between runner and hand
-    if (runnerX - runner.width / 2 < handX + hand.width / 2 &&
-        runnerX + runner.width / 2 > handX - hand.width / 2 &&
-        runnerY - runner.height / 2 < handY + hand.height / 2 &&
-        runnerY + runner.height / 2 > handY - hand.height / 2 &&
+    if (collision() &&
         timer < interval &&
-        frameCount % 60 > 55) {
+        frameCount % 60 > 45) {
         fill(247, 203, 1);
-        rect(handX, 0, handX + hand.width, height);
+        noStroke();
+        rect(handX, 0, handX + hand.width, height - handY);
     }
     if (runnerIsRunning && keyIsDown(RIGHT_ARROW)) {
         image(runnerCycle, runnerX, runnerY);
@@ -82,11 +80,7 @@ function draw() {
     timer++; // increase timer each frame
     // when timer goes above interval
     if (timer > interval && !youLost) {
-        if (
-            runnerX - runner.width / 2 < handX + hand.width / 2 &&
-            runnerX + runner.width / 2 > handX - hand.width / 2 &&
-            runnerY - runner.height / 2 < handY + hand.height / 2 &&
-            runnerY + runner.height / 2 > handY - hand.height / 2) {
+        if (collision()) {
             youLost = true;
         }
         if (timer > interval + attackTime) {
@@ -99,5 +93,15 @@ function draw() {
         background(247, 203, 1);
         image(lost, runnerX, runnerY);
         image(hand, handX, handY);
+    }
+}
+function collision() {
+    if (runnerX - runner.width / 2 < handX + hand.width / 2 &&
+        runnerX + runner.width / 2 > handX - hand.width / 2 &&
+        runnerY - runner.height / 2 < handY + hand.height / 2 &&
+        runnerY + runner.height / 2 > handY - hand.height / 2) {
+        return true;
+    } else {
+        return false;
     }
 }
