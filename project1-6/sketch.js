@@ -8,7 +8,8 @@
 var runner, runnerCycle, runningLeft, runnerJump
 var hand, blackWidow, lost, hand2, spider
 
-var portal;
+var spiderPositions = [];
+var spiderNumber;
 var main;
 
 var player;
@@ -64,16 +65,27 @@ function draw() {
         player.y += player.speed;
         player.isRunning = true;
     }
+    //boundaries
+    if (player.x < 0) {
+        player.x = player.x + 15;
+    }
+    if (player.x > width) {
+        player.x = player.x - 15;
+    }
+    if ( player.y < 0) {
+        player.y =  player.y + 15;
+    }
+    if ( player.y > height) {
+        player.y =  player.y - 15;
+    }
+
     player.draw();
     hand.draw();
     hand.update();
     display.draw();
-    spider.update();
+   // spider.update();
     
     score ++; // if runner is in a csene
-    // if (keyIsDown(ENTER)){
-    //     //change scene
-    // } 
 
     // hand2.draw();
     // hand2.update();
@@ -94,4 +106,5 @@ function draw() {
         //reset lives
         player.lives = 3;
     }
+
 }
