@@ -17,6 +17,9 @@ var level = 1;
 var score = 100;
 var display;
 
+var groundY = 200;
+var GRAVITY = 2; // acceleration 2 pix per frame
+
 function preload() {
     runner = loadImage("F1.png");
     runnerCycle = loadImage("Inception_Piskel.gif");
@@ -84,7 +87,6 @@ function draw() {
     hand.draw();
     hand.update();
     display.draw();
-    // spider.update();
 
     score++; // if runner is in a csene
 
@@ -101,6 +103,7 @@ function draw() {
     }
     if (score > 200 && player.lives > 0) {
         //spiders appear
+        spider.draw();
         spider.update();
     }
     if (score > 0) {
