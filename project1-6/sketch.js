@@ -31,10 +31,11 @@ function preload() {
 function setup() {
     createCanvas(windowWidth, windowHeight);
     // textSize(100);
-    // fill("white")
-    // textFont("Comic Sans Ms")
-	// textAlign(CENTER, CENTER)
+    // fill("white");
+    // textFont("Comic Sans Ms");
+	// textAlign(CENTER, CENTER);
     imageMode(CENTER);
+    //blackWidow.delay(1000)
 
     player = new Player(width / 2, height / 2);
     hand = new Hand(7);
