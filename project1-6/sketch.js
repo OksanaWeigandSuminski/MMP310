@@ -33,7 +33,7 @@ function setup() {
     // textSize(100);
     // fill("white");
     // textFont("Comic Sans Ms");
-	// textAlign(CENTER, CENTER);
+    // textAlign(CENTER, CENTER);
     imageMode(CENTER);
     //blackWidow.delay(1000)
 
@@ -48,7 +48,7 @@ function setup() {
 
 function draw() {
     background(199, 59, 26);
-	/* player keyboard events */
+    /* player keyboard events */
     player.isRunning = false;
     if (keyIsDown(RIGHT_ARROW)) {
         player.x += player.speed;
@@ -73,39 +73,39 @@ function draw() {
     if (player.x > width) {
         player.x = player.x - 15;
     }
-    if ( player.y < 0) {
-        player.y =  player.y + 15;
+    if (player.y < 0) {
+        player.y = player.y + 15;
     }
-    if ( player.y > height) {
-        player.y =  player.y - 15;
+    if (player.y > height) {
+        player.y = player.y - 15;
     }
 
     player.draw();
     hand.draw();
     hand.update();
     display.draw();
-   // spider.update();
-    
-    score ++; // if runner is in a csene
+    // spider.update();
+
+    score++; // if runner is in a csene
 
     // hand2.draw();
     // hand2.update();
-    if (hand.collide(player)){
+    if (hand.collide(player)) {
 
-      score-= 10;
-      console.log(score);
+        score -= 10;
+        console.log(score);
     }
-    if (score < 100){
-        player.lives --;
+    if (score < 100) {
+        player.lives--;
         console.log(player.lives);
     }
-    if (score > 200 && player.lives > 0){
-    //spiders appear
-    spider.update();
+    if (score > 200 && player.lives > 0) {
+        //spiders appear
+        spider.update();
     }
-    if (score > 0){
+    if (score > 0) {
         //reset lives
-        player.lives = 3;
+        player.lives ++;
     }
 
 }
