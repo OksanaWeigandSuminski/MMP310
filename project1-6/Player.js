@@ -16,31 +16,13 @@ class Player extends GameObject {
 	}
 
 	draw() {
-		if (this.isRunning) {
-			image(this.run, this.x, this.y);
-		} else if (this.isJumping) {
+		if (this.isJumping) {
 			image(this.jump, this.x, this.y);
+		} else if (this.isRunning) {
+			image(this.run, this.x, this.y);
 		} else {
 			image(this.runner, this.x, this.y);
 		}
-			// apply gravity
-			if (this.run.y < height - 300) {
-				this.runnerYSpeed += GRAVITY;
-			} else {
-				this.runnerYSpeed = 0;
-				this.isJumping = false;
-			}
-			// 32 is a space key
-			if (!this.isJumping && keyIsDown(32)) {
-				this.runnerYSpeed = -40;
-				this.isJumping = true;
-			}
-			this.run.y += this.runnerYSpeed;
-			// if (this.isJumping) {
-			// 	image(runnerJump, runnerX, runnerY);
-			// } else {
-			// 	image(runnerCycle, runnerX, runnerY);
-			// }
 	
 	}
 }
