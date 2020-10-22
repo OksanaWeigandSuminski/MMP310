@@ -55,10 +55,10 @@ function draw() {
     if (player.lives >= 0) {
         game();
     }
-    else if (player.lives < 0) {
+    if (player.lives < 0) {
         lose();
     }
-    else if (score >= 200 && player.lives >= 0 ) {
+    if (score >= 250 && player.lives >= 0 ) {
         win();
     }
 }
@@ -96,13 +96,14 @@ function game() {
 
         if (spider.collide(player)) {
             lose();
+
             // spider collision here
             //if runner gets past last spider
             if (i == spiders.length - 1 && player.x > spider.x) {
                win();
             } 
-
         }
+        
     }
     // apply gravity
     if (player.y < height - 300) {
@@ -150,6 +151,10 @@ function win() {
     // m key
     if (keyIsDown(77)) {
         location.reload();
+        game();
+        // level = 1;
+        // score = 100;
+        // player.lives = 3;
     }
 }
 function lose() {
@@ -162,5 +167,6 @@ function lose() {
     // m key
     if (keyIsDown(82)) {
         location.reload();
+        game();
     }
 }
