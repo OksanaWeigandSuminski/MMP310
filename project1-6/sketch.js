@@ -20,6 +20,8 @@ var groundY = 200;
 var GRAVITY = 2; // acceleration 2 pix per frame
 var runnerYSpeed = 2;
 
+var scene = "game"; // win, lose
+
 function preload() {
     runner = loadImage("F1.png");
     runnerCycle = loadImage("Inception_Piskel.gif");
@@ -34,32 +36,33 @@ function preload() {
 function setup() {
     createCanvas(windowWidth, windowHeight);
     imageMode(CENTER);
-    blackWidow.delay(2000)
+    blackWidow.delay(5000)
     var spiderNumber = random(8, 12);
     for (let i = 0; i < spiderNumber; i++) {
         let x = width / 2 + i * width + random(width / 2);
-        let y = height - groundY;
+        let y = height - groundY + 50;
         let spider = new Spiders(x, y);
         console.log(spider);
         spiders.push(spider);
     }
 
     player = new Player(width / 2, height / 2);
-    hand = new Hand(7);
-    hand2 = new Hand(8);
+    hand = new Hand(10);
+    //hand2 = new Hand(8);
     display = new Display();
-}
 
+    scene = "game";
+}
 function draw() {
-    //game outcome
-    if (player.lives >= 0) {
+    //scene manager
+    if (scene == "game") {
         game();
     }
-    if (player.lives < 0) {
-        lose();
-    }
-    if (score >= 250 && player.lives >= 0 ) {
+    else if (scene == "win") {
         win();
+    }
+    else if (scene == "lose") {
+        lose();
     }
 }
 
@@ -87,23 +90,22 @@ function game() {
 
     for (let i = 0; i < spiders.length; i++) {
         let spider = spiders[i];
-
         if (level == 2) {
             spider.draw();
             spider.update();
         }
-
-
-        if (spider.collide(player)) {
-            lose();
-
-            // spider collision here
+               // spider collision
+        if (spider.collide(player) && !spider.isColliding) {
+            spider.isColliding = true;
+            score -= 20;
+        } else if (!spider.collide(player) && spider.isColliding) {
+            spider.isColliding = false;
+        }
             //if runner gets past last spider
             if (i == spiders.length - 1 && player.x > spider.x) {
-               win();
+            scene = 'win';
             } 
-        }
-        
+       
     }
     // apply gravity
     if (player.y < height - 300) {
@@ -119,7 +121,6 @@ function game() {
     }
     player.y += runnerYSpeed;
 
-
     player.draw();
     hand.draw();
     hand.update();
@@ -133,11 +134,13 @@ function game() {
         if (score < 100) {
             player.lives--;
         }
+        if (player.lives < 0) {
+           scene = "lose";
+        }
     } else if (!hand.collide(player) && hand.isColliding) {
         hand.isColliding = false;
-
     }
-    if (score > 150 && player.lives > 0) {
+    if (score > 150 && player.lives >= 0) {
         level = 2;
     }
 }
@@ -151,10 +154,7 @@ function win() {
     // m key
     if (keyIsDown(77)) {
         location.reload();
-        game();
-        // level = 1;
-        // score = 100;
-        // player.lives = 3;
+        scene == "game";
     }
 }
 function lose() {
@@ -164,9 +164,9 @@ function lose() {
     textAlign(CENTER, CENTER);
     text("You lost!", width / 2, height / 2);
     text("Hit R to Try Again", width / 2, height / 2 + 100);
-    // m key
+    // r key
     if (keyIsDown(82)) {
         location.reload();
-        game();
+        scene == "game";
     }
 }
