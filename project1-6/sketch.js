@@ -22,6 +22,8 @@ var runnerYSpeed = 2;
 
 var scene = "game"; // win, lose
 
+var obstaclesPassed;
+
 function preload() {
     runner = loadImage("F1.png");
     runnerCycle = loadImage("Inception_Piskel.gif");
@@ -52,6 +54,7 @@ function setup() {
     display = new Display();
 
     scene = "game";
+    obstaclesPassed = 0;
 }
 function draw() {
     //scene manager
@@ -101,10 +104,15 @@ function game() {
         } else if (!spider.collide(player) && spider.isColliding) {
             spider.isColliding = false;
         }
-            //if runner gets past last spider
-            if (i == spiders.length - 1 && player.x > spider.x) {
-            scene = 'win';
-            } 
+        //if runner gets past last spider
+        if (i == spiders.length - 1 && player.x > spider.x) {
+        scene = 'win';
+        } 
+        if (player.x > spider.x && i >= obstaclesPassed){
+            score +=50;
+            obstaclesPassed++;
+        }
+
        
     }
     // apply gravity
