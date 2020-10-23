@@ -13,7 +13,7 @@ var spiderNumber;
 
 var player;
 var level = 1;
-var score = 100;
+var score = 200;
 var display;
 
 var groundY = 200;
@@ -42,7 +42,7 @@ function setup() {
     var spiderNumber = random(8, 12);
     for (let i = 0; i < spiderNumber; i++) {
         let x = width / 2 + i * width + random(width / 2);
-        let y = height - groundY + 50;
+        let y = height - groundY;
         let spider = new Spiders(x, y);
         console.log(spider);
         spiders.push(spider);
@@ -100,6 +100,7 @@ function game() {
                // spider collision
         if (spider.collide(player) && !spider.isColliding) {
             spider.isColliding = true;
+            spider.didCollide = true;
             score -= 20;
         } else if (!spider.collide(player) && spider.isColliding) {
             spider.isColliding = false;
@@ -108,7 +109,7 @@ function game() {
         if (i == spiders.length - 1 && player.x > spider.x) {
         scene = 'win';
         } 
-        if (player.x > spider.x && i >= obstaclesPassed){
+        if (player.x > spider.x && i >= obstaclesPassed && !spider.didCollide ){
             score +=50;
             obstaclesPassed++;
         }
@@ -127,11 +128,11 @@ function game() {
         runnerYSpeed = -40;
         player.isJumping = true;
     }
-    player.y += runnerYSpeed;
+    // player.y += runnerYSpeed;
 
     player.draw();
     hand.draw();
-    hand.update();
+    //hand.update();
     display.draw();
 
     // hand2.draw();
