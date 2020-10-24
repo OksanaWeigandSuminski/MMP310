@@ -13,7 +13,7 @@ var spiderNumber;
 
 var player;
 var level = 1;
-var score = 200;
+var score = 100;
 var display;
 
 var groundY = 200;
@@ -49,7 +49,7 @@ function setup() {
     }
 
     player = new Player(width / 2, height / 2);
-    hand = new Hand(10);
+    hand = new Hand(7);
     //hand2 = new Hand(8);
     display = new Display();
 
@@ -128,11 +128,11 @@ function game() {
         runnerYSpeed = -40;
         player.isJumping = true;
     }
-    // player.y += runnerYSpeed;
+    player.y += runnerYSpeed;
 
     player.draw();
     hand.draw();
-    //hand.update();
+    hand.update();
     display.draw();
 
     // hand2.draw();

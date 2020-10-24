@@ -14,7 +14,7 @@ class Hand extends GameObject{
             this.x = random(width);
         }
         if (this.y > height/3 && !hand.isColliding){
-            score += 10;
+            score += 20;
           }
     }
 
