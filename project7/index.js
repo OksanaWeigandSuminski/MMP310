@@ -84,10 +84,10 @@ function onBoardClick(event) {
 		foe.shipCountTotal--;
     alert("Hit!");
     foeShips.textContent = foe.shipCountTotal;
-    currentCell.style.backgroundColor = 'red';
+    currentCell.style.backgroundColor = '#C100FE';
 	} else {
     alert("Miss!");
-    currentCell.style.backgroundColor = 'green';
+    currentCell.style.backgroundColor = '#00147D';
 	}
 	console.log(player1.board);
 	console.log(player2.board);

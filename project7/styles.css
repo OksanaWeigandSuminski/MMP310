@@ -1,12 +1,15 @@
 * {
 margin: 0;
 padding: 0;
+overflow: hidden;
 }
-
-body {
-  min-height: 100vh;
+body, html {
+  height: 100%;
   width: 100%;
-  background: white;
+  color:whitesmoke;
+  background: black;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 14px;
 }
 
 h1{
@@ -24,22 +27,29 @@ li{
   flex-direction: row;
 }
 
-button{
-  background-color: inherit;
-  border: solid;
-  margin-top: 40%;
-  border-radius: 10px;
-  padding: 5px 8px;
+button {
+  background-color:rgba(0, 0, 0, 0.70); 
+  border: none;
+  color: whitesmoke;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
 }
 
 button:hover{
   background-color: black;
-  color: white;
+  color: whitesmoke;
   border: solid;
 }
 
 .square{
-  color: white;
+  color: whitesmoke;
   margin: 1%;
   background-color: black;
   width: 60px;
@@ -54,7 +64,7 @@ button:hover{
 
 .player{
   padding: 4%;
-  background-color: rgba(51, 50, 52, 0.21);
+  background-color: rgba(0, 0, 0, 0.30);
 }
 
 .player_information{
@@ -62,4 +72,15 @@ button:hover{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+.bg {
+  background-image: url("bg5.png");
+
+  /* Full height */
+  height: 100%; 
+
+  /* Center and scale the image */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
