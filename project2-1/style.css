@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Barrio&family=Roboto+Slab:wght@500&display=swap');
+html{
+    height: 100%;
+}
+body {
+	background-color:whitesmoke;
+	font-family: 'Barrio', cursive;
+}
+
+button {
+	all: inherit;
+	font-size: 1em;
+	border: 2px solid#024959;
+	border-radius: 0.25em;
+	padding: 0.50em;
+    cursor: pointer;
+    color: whitesmoke;
+    background:#024959;
+    font-family: 'Roboto Slab', serif;
+}
+
+button:hover {
+	background: #023859;
+	color: whitesmoke;
+}
+
+button:active {
+    border-color: #011C26;
+}
+
+h1 {
+    color:#024959;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+p {
+	font-size: 1.25em;
+	margin: 0;
+}
+
+#container {
+	max-width: 720px;
+	margin: 0 auto;
+}
+
+#interface {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+button#start {
+	margin-left: auto;
+	margin-right: 1em;
+}
+
+.answers {
+	display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Roboto Slab', serif;
+}
+
+.option {
+	font-size: 1.2em;
+
+    border: 3px solid #024959;
+    border-radius: 0.25em;
+    background:#026873;
+    color: whitesmoke;
+    
+    flex-basis: 200px;
+    height: 75px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+
+    transition: background-color 200ms ease-in;
+}
+
+.option:hover {
+	background-color:#023859;
+}
+.bg {
+    background-image: url("ocean.png");
+  
+    /* Full height */
+    height: 100%; 
+  
+    /* Center and scale the image */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
