@@ -4,36 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="style.css" rel="stylesheet">
-	<title>JavaScript Quiz</title>
+	<title>Cybersecurity Knowledge Quiz</title>
 </head>
 <body class="bg">
-    <did>
     <div id="container">
 
 		<div id="header">
-			<h1>JavaScript Quiz</h1>
+            <h1>CYBERSECURITY</h1>
+            <p id="subtitle"> knowledge quiz</p>
 		</div>
 
 		<div id="interface">
-			<p id="message">Click to start!</p>
-			<button id="start">Start Quiz</button>
-			<button id="next">Next Question</button>
+			<p id="message">CLICK TO START!</p>
+			<button id="start">START QUIZ</button>
+            <button id="next" class="disable">NEXT QUESTION</button>
+            <button id="end" class="disable">GET YOUR SCORE</button>
 		</div>
 
         <div id="quiz"></div>
         
-            <div class="question-container">
+            <!-- <div class="question-container">
                 <h2 class="question">Which sea creature has three hearts?</h2>
                 <div class="answers">
                     <div class="option">Horseshoe Crab</div>
                     <div class="option">Sea Star</div>
                     <div class="option">Octopus</div>
                 </div>
-            </div>
-
-		<script src="app.js"></script>
+            </div> -->
 
     </div>
+    <script src="Question.js"></script>
+    <script src="app.js"></script>
 </div>
 </body>
 </html>
