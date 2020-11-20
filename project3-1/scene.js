@@ -2,7 +2,7 @@
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 
-camera.position.set(0, 5, 5);
+camera.position.set(0, 2, 2);
 
 const renderer = new THREE.WebGLRenderer({ alpha: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
@@ -13,24 +13,19 @@ const controls = new THREE.OrbitControls(camera, renderer.domElement);
 /* scene */
 const sceneWidth = 20;
 
-//street
-const streetGeo = new THREE.PlaneGeometry(sceneWidth+100, 120);
-const streetMat = new THREE.MeshBasicMaterial({ color: 0x3D7C47, side: THREE.DoubleSide });
-const street = new THREE.Mesh(streetGeo, streetMat);
-street.rotation.x = Math.PI * -0.5;
-scene.add(street);
+
 
 // sidewalk 
 for (let x = -sceneWidth / 2; x < sceneWidth / 2; x += 1) {
 	const geo = new THREE.BoxGeometry(0.95, 0.1, 0.95);
 	const mat = new THREE.MeshBasicMaterial({ color: 0x828282 });
-	const sidewalk1 = new THREE.Mesh(geo, mat);
-	sidewalk1.position.set(x + 0.5, 0.05, -2.4);
-	scene.add(sidewalk1);
+	// const sidewalk1 = new THREE.Mesh(geo, mat);
+	// sidewalk1.position.set(x + 0.5, 0.05, -2.4);
+	// scene.add(sidewalk1);
 
-	const sidewalk2 = new THREE.Mesh(geo, mat);
-	sidewalk2.position.set(x + 0.5, 0.05, -3.42);
-	scene.add(sidewalk2);
+	// const sidewalk2 = new THREE.Mesh(geo, mat);
+	// sidewalk2.position.set(x + 0.5, 0.05, -3.42);
+	// scene.add(sidewalk2);
 }
 
 let mesh, mixer;
@@ -65,6 +60,7 @@ function init() {
 
 		mesh = gltf.scene.children[0];
 		mesh.scale.set(0.2, 0.2, 0.2);
+		mesh.position.set(0,-2,5);
 		scene.add(mesh);
 
 		mixer = new THREE.AnimationMixer(mesh);
@@ -73,65 +69,23 @@ function init() {
 
 	});
 
+	// ground
+	const tesxtLoader = new THREE.TextureLoader();
 
-	//grass set up
-	const geometry = new THREE.PlaneBufferGeometry(100, 100);
+	const groundTexture =  tesxtLoader.load( 'grasslight-big.jpg' );
+	groundTexture.wrapS = groundTexture.wrapT = THREE.RepeatWrapping;
+	groundTexture.repeat.set( 0.9, 0.9 );
+	groundTexture.anisotropy = 16;
+	groundTexture.encoding = THREE.sRGBEncoding;
 
-	const texture = new THREE.CanvasTexture(generateTexture());
+	const groundMaterial = new THREE.MeshLambertMaterial( { map: groundTexture } );
 
-	for (let i = 0; i < 15; i++) {
-
-		const material = new THREE.MeshBasicMaterial({
-			color: new THREE.Color().setHSL(0.3, 0.75, (i / 15) * 0.4 + 0.1),
-			map: texture,
-			depthTest: false,
-			depthWrite: false,
-			transparent: true
-		});
-
-		const mesh = new THREE.Mesh(geometry, material);
-
-		mesh.position.y = i * 0.25;
-		mesh.rotation.x = - Math.PI / 2;
-
-		scene.add(mesh);
-
-	}
-	scene.children.reverse();
-
-	window.addEventListener('resize', onWindowResize, false);
-}
-
-
-function onWindowResize() {
-
-	camera.aspect = window.innerWidth / window.innerHeight;
-	camera.updateProjectionMatrix();
-
-	renderer.setSize(window.innerWidth, window.innerHeight);
-
-}
-function generateTexture() {
-
-	const canvas = document.createElement( 'canvas' );
-	canvas.width = 512;
-	canvas.height = 512;
-
-	const context = canvas.getContext( '2d' );
-
-	for ( let i = 0; i < 20000; i ++ ) {
-
-		context.fillStyle = 'hsl(0,0%,' + ( Math.random() * 50 + 50 ) + '%)';
-		context.beginPath();
-		context.arc( Math.random() * canvas.width, Math.random() * canvas.height, Math.random() + 0.15, 0, Math.PI * 2, true );
-		context.fill();
-
-	}
-
-	context.globalAlpha = 0.075;
-	context.globalCompositeOperation = 'lighter';
-
-	return canvas;
+	//street
+	const streetGeo = new THREE.PlaneGeometry(sceneWidth+100, 120);
+	const streetMat = new THREE.MeshBasicMaterial({ color: 0x3D7C47, side: THREE.DoubleSide });
+	const street = new THREE.Mesh(streetGeo, groundMaterial);
+	street.rotation.x = Math.PI * -0.5;
+	scene.add(street);
 
 }
 
@@ -139,12 +93,11 @@ function generateTexture() {
 function animate() {
 
 	requestAnimationFrame(animate);
-	//render();
 
-	theta += 0.1;
 
-	// camera.position.x = radius * Math.sin( THREE.MathUtils.degToRad( theta ) );
-	// camera.position.z = radius * Math.cos( THREE.MathUtils.degToRad( theta ) );
+	theta += 0.6;
+
+	controls.update();
 
 	camera.lookAt(camera.target);
 
@@ -157,24 +110,10 @@ function animate() {
 		prevTime = time;
 
 	}
+	const time = Date.now() / 6000;
 
-	// function render() {
-
-	// 	const time = Date.now() / 6000;
-
-	// 	camera.position.x = 80 * Math.cos( time );
-	// 	camera.position.z = 80 * Math.sin( time );
-
-	// 	camera.lookAt( scene.position );
-
-	// 	for ( let i = 0, l = scene.children.length; i < l; i ++ ) {
-
-	// 		const mesh = scene.children[ i ];
-	// 		mesh.position.x = Math.sin( time * 4 ) * i * i * 0.005;
-	// 		mesh.position.z = Math.cos( time * 6 ) * i * i * 0.005;
-
-	// 	}
-	// }
+	camera.position.x = 80 * Math.cos( time * 4 );
+	camera.position.z = 80 * Math.sin( time * 4 );
 
 	renderer.render(scene, camera);
 
