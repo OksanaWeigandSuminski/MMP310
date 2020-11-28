@@ -14,6 +14,9 @@ let questions = [];
 let currentQuestion = 0;
 let score = 0;
 
+let results = [];
+results.push(new Result());
+
 questions.push(new Question("A group of computers that is networked together and used by hackers to steal information is called a …", "Botnet", ["Rootkit", "Operating system"]));
 questions.push(new Question("Some websites and online services use a security process that protects the user from an unknown person trying to access their data. What authentication method does image exemplify?", "Two-step authentication", ["Keystroke logging", "Biometric authentication"], "Q1.png"));
 questions.push(new Question("What does the https:// at the beginning of a URL denote, as opposed to http:// (without the “s”)?", "That information entered into the site is encrypted", ["That the site is not accessible to certain computers", "That the site is the newest version available"]));
@@ -50,12 +53,11 @@ nextButton.addEventListener('click', function() {
 endButton.addEventListener('click', function() {
 	quizContainer.textContent = ''; // hacky way to remove quiz html
 	endButton.classList.add('disable');
-	// message.textContent = "You got " + score + " out of " + questions.length + "!";
 	message.textContent = `YOU GOT ${score} OUT OF ${questions.length}! `;
 
 	// add extra message 
 	if (score == 0) {
-		// message.textContent += "Better luck next time!";
+		message.textContent += "Try again!";
 	}
 });
 
@@ -70,10 +72,10 @@ function loadNextQuestion() {
 
 function questionAnswered(isCorrect) {
 	if (isCorrect) {
-		message.textContent = "CORRECT!";
+		// message.textContent = "CORRECT!";
 		score++;
-	} else {
-		message.textContent = "NOPE!";
+	// } else {
+	// 	message.textContent = "NOPE!";
 	}
 
 	// if there are more questions

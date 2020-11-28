@@ -1,11 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Roboto:wght@100;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&family=Roboto&display=swap');
 html{
     height: 100%;
 }
 body {
 	background-color:#ffffff;
     font-family: 'Roboto', sans-serif;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 button {
@@ -16,7 +16,7 @@ button {
 	padding: 0.50em;
     cursor: pointer;
     color: #353a3f;
-    background:#353a3f
+    background:#353a3f;
     font-family: 'Roboto', sans-serif;
 }
 
@@ -41,29 +41,35 @@ h1 {
     margin-bottom: 0;
     letter-spacing: 50px;
     font-size: 70px;
-    font-family: 'Black Ops One', cursive;
+    font-family: 'Playfair Display', serif;
 }
 #subtitle {
     color:#353a3f;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 5px;
+    margin-top: 25px;
     padding-bottom: 30px;
     letter-spacing: 10px;
     font-size: 20px;
-    font-family: 'Roboto', sans-serif;
     font-weight: 100;
+    font-family: 'Roboto', sans-serif;
 }
 h2 {
     color:#353a3f;
     /* display: flex; */
     justify-content: center;
     text-align: center; 
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 40px;
+    margin-bottom: 50px;
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
+    font-size: 40px;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: -webkit-box-shadow -19px 19px 43px 0px rgba(0,0,0,0.61);
+    -moz-box-shadow: -19px 19px 43px 0px rgba(0,0,0,0.61);
+    box-shadow: -19px 19px 43px 0px rgba(0,0,0,0.61);
+    padding: 20px;
 }
 
 p {
@@ -71,22 +77,33 @@ p {
 }
 #message {
     color:#353a3f;
+    background-color: rgb(231, 102, 102);
+    font-size: 30px;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: -webkit-box-shadow -19px 19px 43px 0px rgba(0,0,0,0.61);
+    -moz-box-shadow: -19px 19px 43px 0px rgba(0,0,0,0.61);
+    box-shadow: -19px 19px 43px 0px rgba(0,0,0,0.61);
+    padding: 20px;
+    margin-top: 30px ;
+    margin-bottom: 50px;
+    text-align: center;
 }
 
 #container {
-	max-width: 720px;
+	max-width: 1200px;
 	margin: 0 auto;
 }
 
 #interface {
 	display: flex;
-	justify-content: space-between;
+	justify-content: center;
 	align-items: center;
 }
 
 button#start {
-	margin-left: auto;
-	margin-right: 1em;
+	/* margin-left: auto;
+    margin-right: 1em; */
+    text-align: center;
 }
 
 .answers {
@@ -100,15 +117,20 @@ button#start {
 }
 
 .option {
-	font-size: 1.2em;
+    font-size: 30px;
 
     border: 3px solid #353a3f;
-    border-radius: 0.25em;
+    /* border-radius: 0.25em; */
     background:#ffffff;
     color: #353a3f;
    
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: -webkit-box-shadow -19px 19px 43px 0px rgba(0,0,0,0.61);
+    -moz-box-shadow: -19px 19px 43px 0px rgba(0,0,0,0.61);
+    box-shadow: -19px 19px 43px 0px rgba(0,0,0,0.61);
     
     flex-basis: 75px;
+
     /* height: 75px; */
     
     /* display: flex;
@@ -122,10 +144,11 @@ button#start {
 
     cursor: pointer;
     transition: background-color 200ms ease-in;
+    /* background-color: rgba(0,0,0,0.05); transition: 1s; */
 }
 
 .option:hover {
-	background-color:#d4d5d6;
+	background-color:rgba(0,0,0,0.07);
 }
 .bg {
     /* background-image: url("2.jpg"); */
@@ -139,11 +162,11 @@ button#start {
     background-size: cover;
   }
 .option.correct-answer {
-	border-color: green;
+	border-color:rgb(231, 102, 102);
 }
 
 .option.wrong-answer {
-	border-color: red;
+	border-color: rgb(231, 102, 102);
 }
 .question-container img{
     /* height:50%;
@@ -151,5 +174,5 @@ button#start {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 50%;
+    width: 80%;
 }

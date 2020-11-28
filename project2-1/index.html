@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link href="style.css" rel="stylesheet">
 	<title>Cybersecurity Knowledge Quiz</title>
 </head>
@@ -14,17 +15,18 @@
             <p id="subtitle"> knowledge quiz</p>
 		</div>
 
+        <p id="message">CLICK TO START!</p>
 		<div id="interface">
-			<p id="message">CLICK TO START!</p>
-			<button id="start">START QUIZ</button>
-            <button id="next" class="disable">NEXT QUESTION</button>
-            <button id="end" class="disable">GET YOUR SCORE</button>
-		</div>
+            
+            <button id="start" type="button" class="btn btn-secondary btn-lg">START QUIZ</button>
+            <button id="next" type="button" class="disable btn btn-secondary btn-lg mb-4 mt-4">NEXT QUESTION</button>
+            <button id="end" type="button" class="disable btn btn-secondary btn-lg mb-5">GET YOUR SCORE</button>
+        </div>
 
         <div id="quiz"></div>
         
-            <!-- <div class="question-container">
-                <h2 class="question">Which sea creature has three hearts?</h2>
+            <!-- <div class="question-container card bg-light mb-3" style="max-width: 18rem;">
+                <h2 class="question card-text">Which sea creature has three hearts?</h2>
                 <div class="answers">
                     <div class="option">Horseshoe Crab</div>
                     <div class="option">Sea Star</div>
@@ -33,7 +35,11 @@
             </div> -->
 
     </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <script src="Question.js"></script>
+    <script src="Result.js"></script>
     <script src="app.js"></script>
 </div>
 </body>
