@@ -1,17 +1,21 @@
 // setup
 const scene = new THREE.Scene();
+
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 
 camera.position.set(0, 2, 2);
 
 const renderer = new THREE.WebGLRenderer({ alpha: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
+
 document.body.appendChild(renderer.domElement);
 
 const controls = new THREE.OrbitControls(camera, renderer.domElement);
 
+
 /* scene */
 const sceneWidth = 20;
+
 
 
 
@@ -39,11 +43,11 @@ animate();
 
 function init() {
 
+
 	camera.position.y = 75;
 	camera.position.z = 75;
 	camera.target = new THREE.Vector3(0, 0, 0);
-
-	scene.background = new THREE.Color(0xf0f0f0);
+	scene.background = new THREE.Color( 0x000000 );
 
 	//horse set up
 
@@ -82,7 +86,7 @@ function init() {
 
 	//street
 	const streetGeo = new THREE.PlaneGeometry(sceneWidth+100, 120);
-	const streetMat = new THREE.MeshBasicMaterial({ color: 0x3D7C47, side: THREE.DoubleSide });
+	const streetMat = new THREE.MeshStandardMaterial({ color: 0x3D7C47, side: THREE.DoubleSide });
 	const street = new THREE.Mesh(streetGeo, groundMaterial);
 	street.rotation.x = Math.PI * -0.5;
 	scene.add(street);
