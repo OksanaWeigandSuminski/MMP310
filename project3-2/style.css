@@ -20,7 +20,7 @@ body {
     font-family: 'Playfair Display', serif;
     letter-spacing: 7px;
     word-spacing: 12px;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     color:rgb(238, 238, 238);
   }
   .button-wrapper {
@@ -50,7 +50,21 @@ body {
       color: white;
       text-decoration: none;
   }
-  #subtitle {
+  .button a:hover{
+    color:#353a3f;
+  }
+  h1 {
+    color:white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 80px;
+    margin-bottom: 0;
+    letter-spacing: 50px;
+    font-size: 70px;
+    font-family: 'Playfair Display', serif;
+}
+#subtitle {
     color:#353a3f;
     display: flex;
     justify-content: center;
@@ -61,3 +75,20 @@ body {
     font-size: 20px;
     font-weight: 100;
     font-family: 'Roboto', sans-serif;
+}
+#caption {
+    color:white;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25px;
+    padding-bottom: 30px;
+    /* letter-spacing: 5px; */
+    font-size: 20px;
+    font-weight: 100;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+}
+#caption a:hover{
+    color: #353a3f;
+}
