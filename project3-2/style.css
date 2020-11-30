@@ -16,11 +16,15 @@ body {
     z-index: -1;
   }
   .text-box {
-    font-size: 60px;
+    /* font-size: 60px;
     font-family: 'Playfair Display', serif;
     letter-spacing: 7px;
     word-spacing: 12px;
-    /* text-transform: uppercase; */
+    text-transform: uppercase;
+    color:rgb(238, 238, 238); */
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: 'Roboto', sans-serif;
     color:rgb(238, 238, 238);
   }
   .button-wrapper {
@@ -73,22 +77,26 @@ body {
     padding-bottom: 30px;
     letter-spacing: 10px;
     font-size: 20px;
-    font-weight: 100;
     font-family: 'Roboto', sans-serif;
 }
-#caption {
-    color:white;
-    display:flex;
+#resources {
     justify-content: center;
     align-items: center;
     margin-top: 25px;
     padding-bottom: 30px;
-    /* letter-spacing: 5px; */
+    letter-spacing: 10px;
     font-size: 20px;
-    font-weight: 100;
     font-family: 'Roboto', sans-serif;
     text-align: center;
 }
-#caption a:hover{
+#resources a:hover{
     color: #353a3f;
+}
+#message{
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 5px;
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
 }
