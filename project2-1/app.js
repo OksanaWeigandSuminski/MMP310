@@ -69,10 +69,10 @@ function loadNextQuestion() {
 
 function questionAnswered(isCorrect) {
 	if (isCorrect) {
-		// message.textContent = "CORRECT!";
+		message.textContent = "CORRECT!";
 		score++;
-	// } else {
-	// 	message.textContent = "NOPE!";
+	} else {
+		message.textContent = "NOPE!";
 	}
 
 	// if there are more questions
