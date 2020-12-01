@@ -15,11 +15,11 @@ let currentQuestion = 0;
 let score = 0;
 
 questions.push(new Question("A group of computers that is networked together and used by hackers to steal information is called a …", "Botnet", ["Rootkit", "Operating system"],
- "Botnets hide on your computer and hijack it to perform distributed denial-of-service attacks."));
+"Botnets hide on your computer and hijack it to perform distributed denial-of-service attacks."));
 questions.push(new Question("Some websites and online services use a security process that protects the user from an unknown person trying to access their data. What authentication method does image exemplify?", 
-"Two-step authentication", ["Keystroke logging", "Biometric authentication"], "hhbhfbek","Q1.png"));
-questions.push(new Question("What does the https:// at the beginning of a URL denote, as opposed to http:// (without the “s”)?", "That information entered into the site is encrypted", ["That the site is not accessible to certain computers", "That the site is the newest version available"]));
-questions.push(new Question("Which of the following is an example of a “phishing” attack?", "All of the above", ["Creating a fake website that looks nearly identical to a real website in order to trick users into entering their login information", "Sending someone an email that contains a malicious link that is disguised to look like an email from someone the person knows"]));
+"Two-step authentication", ["Keystroke logging", "Biometric authentication"], "Multi-factor authentication requires the user to provide two or more keys to unlock access to a website. One key is usually the user’s password. A commonly used second key is a security code that is sent to the user in a text message or email.","Q1.png"));
+questions.push(new Question("What does the https:// at the beginning of a URL denote, as opposed to http:// (without the “s”)?", "That information entered into the site is encrypted", ["That the site is not accessible to certain computers", "That the site is the newest version available"], "The “s” in https:// means that communication between the user and the website is encrypted using a form of encryption called SSL (Secure Socket Layer). If someone intercepts information you enter on a website, such as your credit card number, they will not be able to read it."));
+questions.push(new Question("Which of the following is an example of a “phishing” attack?", "All of the above", ["Creating a fake website that looks nearly identical to a real website in order to trick users into entering their login information", "Sending someone an email that contains a malicious link that is disguised to look like an email from someone the person knows"], "Phishing is a technique for gaining access to a user’s computer or to their sensitive information such as passwords and credit card numbers by posing as a legitimate and trustworthy source." ));
 questions.push(new Question("Which of the following three passwords is the most secure?", "MkS!8Y", ["River123", "87654321"]));
 questions.push(new Question("How do you call malicious software that infects your computer and displays messages demanding a fee to be paid in order for your system to work again?", "Ransomware", ["Botnet", "Spam"]));
 questions.push(new Question("What is the name of the feature that is present in some Web browsers that disables Web cache, cookies, browsing history or any other tracking feature that the browser may have?", "All of the above", ["Incognito mode", "Private browsing"]));
@@ -37,7 +37,7 @@ console.log(questions);
 // events
 startButton.addEventListener('click', function() {
 	startButton.classList.add('disable');
-	message.textContent = "CHOOSE AN ANSWER!";
+	answerResponse.textContent = "CHOOSE AN ANSWER!";
 	loadNextQuestion();
 });
 
@@ -46,17 +46,17 @@ nextButton.addEventListener('click', function() {
 	nextButton.classList.add('disable');
 	currentQuestion++;
 	loadNextQuestion();
-	message.textContent = "CHOOSE AN ANSWER!";
+	answerResponse.textContent = "CHOOSE AN ANSWER!";
 });
 
 endButton.addEventListener('click', function() {
 	quizContainer.textContent = ''; // hacky way to remove quiz html
 	endButton.classList.add('disable');
-	message.textContent = `YOU GOT ${score} OUT OF ${questions.length}! `;
+	answerResponse.textContent = `YOU GOT ${score} OUT OF ${questions.length}! `;
 
 	// add extra message 
 	if (score == 0) {
-		message.textContent += "Try again!";
+		answerResponse.textContent += "Try again!";
 	}
 });
 
@@ -71,15 +71,19 @@ function loadNextQuestion() {
 
 function questionAnswered(isCorrect, exampleText) {
 	if (isCorrect) {
-		message.textContent = "CORRECT! " + exampleText;
+		answerResponse.textContent = "CORRECT! " 
+		example.textContent =  exampleText;
 		score++;
 	} else {
-		message.textContent = "INCORRECT! " + exampleText;
+		// message.textContent = "INCORRECT! " + exampleText;
+		answerResponse.textContent = "INCORRECT! " 
+		example.textContent =  exampleText;
 	}
 
 	// if there are more questions
 	if (currentQuestion < questions.length - 1) {
 		nextButton.classList.remove('disable');
+		example.textContent.remove('disable');
 	} else {
 		endButton.classList.remove('disable');
 	}
