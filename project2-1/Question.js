@@ -1,5 +1,5 @@
 class Question {
-	constructor(question, answer, options, imagePath) {
+	constructor(question, answer, options, example, imagePath) {
 
 		let answerAttempted = false;
 
@@ -9,11 +9,10 @@ class Question {
             const img = new Image();
             img.src = imagePath;
             this.questionContainer.appendChild(img);
-        }
+		}
         const questionHeader = createElement('h2', 'question', question);
         this.questionContainer.appendChild(questionHeader);
         
-
 		const answers = createElement('div', 'answers');
 		this.questionContainer.appendChild(answers);
 
@@ -25,7 +24,8 @@ class Question {
 			if (!answerAttempted) {
 				answerDiv.classList.add('correct-answer');
 				answerAttempted = true;
-				questionAnswered(true);
+				questionAnswered(true, example);
+
 			}
 		});
 
@@ -38,7 +38,7 @@ class Question {
 				if (!answerAttempted) {
 					option.classList.add('wrong-answer');
 					answerAttempted = true;
-					questionAnswered(false);
+					questionAnswered(false, example);
 				}
 			});
 		}

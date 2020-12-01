@@ -21,14 +21,15 @@ function init() {
     Math.random() * 600 - 300
 );
 star.velocity = 0;
-star.acceleration = 0.02;
+star.acceleration = 0.001;
 starGeo.vertices.push(star);
 }
-let sprite = new THREE.TextureLoader().load( 'star1.png' );
+let sprite = new THREE.TextureLoader().load( 'zero.png' );
+let spriteOne = new THREE.TextureLoader().load( 'one.png' );
 let starMaterial = new THREE.PointsMaterial({
   color: 0xaaaaaa,
   size: 0.7,
-  map: sprite
+  map: Math.random() > 0.5 ? sprite  :spriteOne
 });
 
 stars = new THREE.Points(starGeo,starMaterial);

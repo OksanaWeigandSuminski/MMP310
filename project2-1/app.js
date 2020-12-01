@@ -14,8 +14,10 @@ let questions = [];
 let currentQuestion = 0;
 let score = 0;
 
-questions.push(new Question("A group of computers that is networked together and used by hackers to steal information is called a …", "Botnet", ["Rootkit", "Operating system"]));
-questions.push(new Question("Some websites and online services use a security process that protects the user from an unknown person trying to access their data. What authentication method does image exemplify?", "Two-step authentication", ["Keystroke logging", "Biometric authentication"], "Q1.png"));
+questions.push(new Question("A group of computers that is networked together and used by hackers to steal information is called a …", "Botnet", ["Rootkit", "Operating system"],
+ "Botnets hide on your computer and hijack it to perform distributed denial-of-service attacks."));
+questions.push(new Question("Some websites and online services use a security process that protects the user from an unknown person trying to access their data. What authentication method does image exemplify?", 
+"Two-step authentication", ["Keystroke logging", "Biometric authentication"], "hhbhfbek","Q1.png"));
 questions.push(new Question("What does the https:// at the beginning of a URL denote, as opposed to http:// (without the “s”)?", "That information entered into the site is encrypted", ["That the site is not accessible to certain computers", "That the site is the newest version available"]));
 questions.push(new Question("Which of the following is an example of a “phishing” attack?", "All of the above", ["Creating a fake website that looks nearly identical to a real website in order to trick users into entering their login information", "Sending someone an email that contains a malicious link that is disguised to look like an email from someone the person knows"]));
 questions.push(new Question("Which of the following three passwords is the most secure?", "MkS!8Y", ["River123", "87654321"]));
@@ -67,12 +69,12 @@ function loadNextQuestion() {
 
 }
 
-function questionAnswered(isCorrect) {
+function questionAnswered(isCorrect, exampleText) {
 	if (isCorrect) {
-		message.textContent = "CORRECT!";
+		message.textContent = "CORRECT! " + exampleText;
 		score++;
 	} else {
-		message.textContent = "NOPE!";
+		message.textContent = "INCORRECT! " + exampleText;
 	}
 
 	// if there are more questions
