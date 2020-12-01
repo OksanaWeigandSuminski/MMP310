@@ -47,6 +47,7 @@ nextButton.addEventListener('click', function() {
 	currentQuestion++;
 	loadNextQuestion();
 	answerResponse.textContent = "CHOOSE AN ANSWER!";
+	example.textContent = '';
 });
 
 endButton.addEventListener('click', function() {
