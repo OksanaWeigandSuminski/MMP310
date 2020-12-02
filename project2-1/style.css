@@ -144,7 +144,6 @@ button#start {
 
     cursor: pointer;
     transition: background-color 200ms ease-in;
-    /* background-color: rgba(0,0,0,0.05); transition: 1s; */
 }
 
 .option:hover {
@@ -175,4 +174,27 @@ button#start {
     margin-left: auto;
     margin-right: auto;
     width: 80%;
+}
+a{
+    max-width: 1200px;
+	margin: 0 auto;
+    text-decoration: none;
+    color:#353a3f;
+    display: flex;
+    justify-content: center;
+    text-align: center; 
+    margin-top: 40px;
+    margin-bottom: 50px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 40px;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: -webkit-box-shadow -19px 19px 43px 0px rgba(0,0,0,0.61);
+    -moz-box-shadow: -19px 19px 43px 0px rgba(0,0,0,0.61);
+    box-shadow: -19px 19px 43px 0px rgba(0,0,0,0.61);
+    padding: 20px;
+}
+a:hover{
+    text-decoration: none;
+    color:  rgb(231, 102, 102);
 }
