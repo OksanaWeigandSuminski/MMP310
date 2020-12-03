@@ -28,7 +28,7 @@ button:hover {
 button:active {
     border-color: #fffdfe;
 }
-button.disable {
+.disable {
 	display: none;
 }
 
@@ -175,7 +175,7 @@ button#start {
     margin-right: auto;
     width: 80%;
 }
-a{
+a.reference-link{
     max-width: 1200px;
 	margin: 0 auto;
     text-decoration: none;
@@ -193,6 +193,7 @@ a{
     -moz-box-shadow: -19px 19px 43px 0px rgba(0,0,0,0.61);
     box-shadow: -19px 19px 43px 0px rgba(0,0,0,0.61);
     padding: 20px;
+    transition: 1s ease-in;
 }
 a:hover{
     text-decoration: none;

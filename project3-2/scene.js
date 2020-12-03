@@ -30,9 +30,11 @@ let starMaterial = new THREE.PointsMaterial({
   color: 0xaaaaaa,
   size: 0.7,
   map: Math.random() > 0.5 ? sprite  :spriteOne
+  // map: sprite
 });
 
 stars = new THREE.Points(starGeo,starMaterial);
+
 scene.add(stars);
 
   animate(); 
