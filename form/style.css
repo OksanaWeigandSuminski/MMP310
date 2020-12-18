@@ -1,0 +1,19 @@
+input,
+textarea,
+button,
+select {
+	display: block;
+	margin-top: 0.5em;
+	/* font-family: inherit;
+    font-size: 100%; */
+}
+/* h1{
+	background-color: aqua;
+}
+p{
+	background-color: blueviolet;
+} */
+.visual{
+	background: blueviolet;
+	font-size: 30px;
+}
