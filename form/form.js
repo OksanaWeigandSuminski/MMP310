@@ -173,7 +173,7 @@ form.addEventListener("submit", (e) => {
     inputs.push({ name, value });
   });
   console.log(inputs);
-  // form.reset();
+  form.reset();
   // let index = 0;
   // const active = document.querySelector('form .step.active');
   // index = step.indexOf(active);

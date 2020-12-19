@@ -4,19 +4,7 @@ button,
 select {
 	display: block;
 	margin-top: 0.5em;
-	/* font-family: inherit;
-    font-size: 100%; */
 }
-/* .visual{
-	background: blueviolet;
-	font-size: 30px;
-	max-width: 400px;
-	margin: 0 auto;
-}
-.visualS{
-	background: rgb(49, 45, 52);
-	font-size: 30px;
-} */
 
 * {
 	padding: 0;
@@ -32,7 +20,7 @@ select {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background-color: aliceblue;
+	/* background-color: aliceblue; */
   }
   .container {
 	max-width: 400px;
@@ -66,18 +54,29 @@ select {
   button.submit-btn {
 	float: right;
 	margin-top: 20px;
-	padding: 10px 30px;
-	border: none;
-	outline: none;
-	background-color: rgb(180, 220, 255);
+	/* padding: 10px 30px; */
+	/* padding: 5px 20px;
+	border-radius: 00.5em; */
+	/* border: none;
+	outline: none; */
+	/* background-color: rgb(180, 220, 255); */
 	font-family: "Montserrat";
 	font-size: 18px;
 	cursor: pointer;
-	/* text-align: right; */
+	background-color: white; border-color: dimgray; color: dimgray;transition: 1s;
+  }
+  button.next-btn:hover,
+  button.previous-btn:hover,
+  button.submit-btn:hover {
+	background-color: dimgray; border-color: white; color: white;transition: 1s; 
   }
   button.previous-btn {
 	float: left;
   }
-  button.submit-btn {
+  /* button.submit-btn {
 	background-color: aquamarine;
+  } */
+  h1{
+	  text-align: center;
+	  margin-top: 50px;
   }

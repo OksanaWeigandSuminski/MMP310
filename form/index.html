@@ -3,6 +3,11 @@
 <head>
 	<title>Privacy Label Form</title>
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
+    integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
 	<link href="style.css" rel="stylesheet">
 </head>
 <body>
@@ -24,7 +29,7 @@
 	<button id="submit">Submit visual</button> -->
 
 	<div id="header">
-		<h1>PRIVACY LABEL</h1>
+		<h1 class="display-2">PRIVACY LABEL</h1>
 	</div>
 	<section>
 		<div class="container">
@@ -36,42 +41,42 @@
 
 			  <div class="form-group">
 				<label for="visualPurpose">Purpose</label>
-				<input type="text" id="visualPurpose" name="visual-purpose">
+				<input type="text" id="visualPurpose" name="visual-purpose" class="form-control">
 			  </div>
 			  <div class="form-group">
 				<label for="visualType">Type</label>
-				<input type="text" id="visualType" name="visual-type">
+				<input type="text" id="visualType" name="visual-type" class="form-control">
 			  </div>
 			  <div class="form-group">
 				<label for="visualUpdates">Updates</label>
 				<!-- <input type="text" id="nickName" name="nick-name"> -->
-				<select id="updatesOne">
+				<select id="updatesOne" class="form-control">
 					<option>automatic</option>
 					<option>manual</option>
 					<option>no updates</option>
 				</select>
-				<select id="updatesTwo">
+				<select id="updatesTwo" class="form-control">
 					<option>changeable</option>
 					<option>not changeable</option>
 				</select>
-				<select id="updatesThree">
+				<select id="updatesThree" class="form-control">
 					<option>encrypted</option>
 					<option>not encrypted</option>
 				</select>
 			  </div>
 			  <div class="form-group">
-				<label for="nickName">Data</label>
+				<label for="visualData">Data</label>
 				<!-- <input type="text" id="nickName" name="nick-name"> -->
-				<select id="dataOne">
+				<select id="dataOne" class="form-control">
 					<option>shared with manufacturer</option>
 					<option>not shared</option>
 				</select>
-				<select id="dataTwo">
+				<select id="dataTwo" class="form-control">
 					<option>sold to third party</option>
 					<option>not sold</option>
 				</select>
 			  </div>
-			  <button type="button" class="next-btn">Next</button>
+			  <button type="button" class="btn btn-md next-btn">Next</button>
 			  <!-- <button id="submit">Submit visual</button>  -->
 			</div>
 	  
@@ -81,21 +86,21 @@
 				</div>
 			  <div class="form-group">
 				<label for="locationPurpose">Purpose</label>
-				<input type="text" id="locationPurpose" name="location-purpose">
+				<input type="text" id="locationPurpose" name="location-purpose" class="form-control">
 			  </div>
 			  <div class="form-group">
 				<label for="locationUpdates">Updates</label>
 				<!-- <input type="number" id="phone" name="phone-number"> -->
-				<select id="locationUpdatesOne">
+				<select id="locationUpdatesOne" class="form-control">
 					<option>automatic</option>
 					<option>manual</option>
 					<option>no updates</option>
 				</select>
-				<select id="locationUpdatesTwo">
+				<select id="locationUpdatesTwo" class="form-control">
 					<option>changeable</option>
 					<option>not changeable</option>
 				</select>
-				<select id="locationUpdatesThree">
+				<select id="locationUpdatesThree" class="form-control">
 					<option>encrypted</option>
 					<option>not encrypted</option>
 				</select>
@@ -103,17 +108,17 @@
 			  <div class="form-group">
 				<label for="locationData">Data</label>
 				<!-- <input type="number" id="phone" name="phone-number"> -->
-				<select id="locationDataOne">
+				<select id="locationDataOne" class="form-control">
 					<option>shared with manufacturer</option>
 					<option>not shared</option>
 				</select>
-				<select id="locationDataTwo">
+				<select id="locationDataTwo" class="form-control">
 					<option>sold to third party</option>
 					<option>not sold</option>
 				</select>
 			  </div>
-			  <button type="button" class="previous-btn">Prev</button>
-			  <button type="button" class="next-btn">Next</button>
+			  <button type="button" class="btn btn-md previous-btn">Prev</button>
+			  <button type="button" class="btn btn-md next-btn">Next</button>
 			</div>
 	  
 			<div class="step step-3">
@@ -122,25 +127,25 @@
 				</div>
 			  <div class="form-group">
 				<label for="sensorPurpose">Purpose</label>
-				<input type="text" id="sensorPurpose" name="sensor-purpose">
+				<input type="text" id="sensorPurpose" name="sensor-purpose" class="form-control">
 			  </div>
 			  <div class="form-group">
 				<label for="sensorType">Type</label>
-				<input type="text" id="sensorType" name="sensor-type">
+				<input type="text" id="sensorType" name="sensor-type" class="form-control">
 			  </div>
 			  <div class="form-group">
 				<label for="sensorUpdates">Updates</label>
 				<!-- <input type="number" id="phone" name="phone-number"> -->
-				<select id="sensorUpdatesOne">
+				<select id="sensorUpdatesOne" class="form-control">
 					<option>automatic</option>
 					<option>manual</option>
 					<option>no updates</option>
 				</select>
-				<select id="sensorUpdatesTwo">
+				<select id="sensorUpdatesTwo" class="form-control">
 					<option>changeable</option>
 					<option>not changeable</option>
 				</select>
-				<select id="sensorUpdatesThree">
+				<select id="sensorUpdatesThree" class="form-control">
 					<option>encrypted</option>
 					<option>not encrypted</option>
 				</select>
@@ -148,17 +153,17 @@
 			  <div class="form-group">
 				<label for="sensorData">Data</label>
 				<!-- <input type="number" id="phone" name="phone-number"> -->
-				<select id="sensorDataOne">
+				<select id="sensorDataOne" class="form-control">
 					<option>shared with manufacturer</option>
 					<option>not shared</option>
 				</select>
-				<select id="sensorDataTwo">
+				<select id="sensorDataTwo" class="form-control">
 					<option>sold to third party</option>
 					<option>not sold</option>
 				</select>
 			  </div>
-			  <button type="button" class="previous-btn">Prev</button>
-			  <button type="button" class="next-btn">Next</button>
+			  <button type="button" class="btn btn-md previous-btn">Prev</button>
+			  <button type="button" class="btn btn-md next-btn">Next</button>
 			</div>
 
 			<div class="step step-4">
@@ -167,25 +172,25 @@
 				</div>
 			  <div class="form-group">
 				<label for="audioPurpose">Purpose</label>
-				<input type="text" id="audioPurpose" name="audio-purpose">
+				<input type="text" id="audioPurpose" name="audio-purpose" class="form-control">
 			  </div>
 			  <div class="form-group">
 				<label for="audioType">Type</label>
-				<input type="text" id="audioType" name="audio-type">
+				<input type="text" id="audioType" name="audio-type" class="form-control">
 			  </div>
 			  <div class="form-group">
 				<label for="audioUpdates">Updates</label>
 				<!-- <input type="number" id="phone" name="phone-number"> -->
-				<select id="audioUpdatesOne">
+				<select id="audioUpdatesOne" class="form-control">
 					<option>automatic</option>
 					<option>manual</option>
 					<option>no updates</option>
 				</select>
-				<select id="audioUpdatesTwo">
+				<select id="audioUpdatesTwo" class="form-control">
 					<option>changeable</option>
 					<option>not changeable</option>
 				</select>
-				<select id="audioUpdatesThree">
+				<select id="audioUpdatesThree" class="form-control">
 					<option>encrypted</option>
 					<option>not encrypted</option>
 				</select>
@@ -193,24 +198,34 @@
 			  <div class="form-group">
 				<label for="audioData">Data</label>
 				<!-- <input type="number" id="phone" name="phone-number"> -->
-				<select id="audioDataOne">
+				<select id="audioDataOne" class="form-control">
 					<option>shared with manufacturer</option>
 					<option>not shared</option>
 				</select>
-				<select id="audioDataTwo">
+				<select id="audioDataTwo" class="form-control">
 					<option>sold to third party</option>
 					<option>not sold</option>
 				</select>
 			  </div>
-			  <button type="button" class="previous-btn">Prev</button>
-			  <button type="button" class="next-btn" >Print</button>
-			  <button id="submit">Submit</button>
+			  <button type="button" class="btn btn-md previous-btn">Prev</button>
+			  <!-- <button type="button" class="next-btn" >Print</button> -->
+			  <button id="submit" type="button" class="btn btn-md submit-btn">Submit</button>
 			</div>
 	  
 		  </form>
 		</div>
 	  </section>
-
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
+    integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"
+    integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
+    crossorigin="anonymous"></script>
 	<script src="form.js"></script>
 </body>
 </html>
