@@ -6,7 +6,7 @@
 	<link href="style.css" rel="stylesheet">
 </head>
 <body>
-	<textarea id="purpose" placeholder="Purpose"></textarea>
+	<!-- <textarea id="purpose" placeholder="Purpose"></textarea>
 	<textarea id="type" placeholder="Add type"></textarea>
 	<select id="updatesOne">
 		<option>Automatic</option>
@@ -21,7 +21,196 @@
 		<option>Encrypted</option>
 		<option>Not encrypted</option>
 	</select>
-	<button id="submit">Submit visual</button>
+	<button id="submit">Submit visual</button> -->
+
+	<div id="header">
+		<h1>PRIVACY LABEL</h1>
+	</div>
+	<section>
+		<div class="container">
+		  <form>
+			<div class="step step-1 active">
+				<div id="header">
+					<h2 id="subtitle1" class="visual"> VISUAL</h2>
+				</div>
+
+			  <div class="form-group">
+				<label for="visualPurpose">Purpose</label>
+				<input type="text" id="visualPurpose" name="visual-purpose">
+			  </div>
+			  <div class="form-group">
+				<label for="visualType">Type</label>
+				<input type="text" id="visualType" name="visual-type">
+			  </div>
+			  <div class="form-group">
+				<label for="visualUpdates">Updates</label>
+				<!-- <input type="text" id="nickName" name="nick-name"> -->
+				<select id="updatesOne">
+					<option>automatic</option>
+					<option>manual</option>
+					<option>no updates</option>
+				</select>
+				<select id="updatesTwo">
+					<option>changeable</option>
+					<option>not changeable</option>
+				</select>
+				<select id="updatesThree">
+					<option>encrypted</option>
+					<option>not encrypted</option>
+				</select>
+			  </div>
+			  <div class="form-group">
+				<label for="nickName">Data</label>
+				<!-- <input type="text" id="nickName" name="nick-name"> -->
+				<select id="dataOne">
+					<option>shared with manufacturer</option>
+					<option>not shared</option>
+				</select>
+				<select id="dataTwo">
+					<option>sold to third party</option>
+					<option>not sold</option>
+				</select>
+			  </div>
+			  <button type="button" class="next-btn">Next</button>
+			  <!-- <button id="submit">Submit visual</button>  -->
+			</div>
+	  
+			<div class="step step-2">
+				<div id="header">
+					<h2 id="subtitle2" class="location">LOCATION</h2>
+				</div>
+			  <div class="form-group">
+				<label for="locationPurpose">Purpose</label>
+				<input type="text" id="locationPurpose" name="location-purpose">
+			  </div>
+			  <div class="form-group">
+				<label for="locationUpdates">Updates</label>
+				<!-- <input type="number" id="phone" name="phone-number"> -->
+				<select id="locationUpdatesOne">
+					<option>automatic</option>
+					<option>manual</option>
+					<option>no updates</option>
+				</select>
+				<select id="locationUpdatesTwo">
+					<option>changeable</option>
+					<option>not changeable</option>
+				</select>
+				<select id="locationUpdatesThree">
+					<option>encrypted</option>
+					<option>not encrypted</option>
+				</select>
+			  </div>
+			  <div class="form-group">
+				<label for="locationData">Data</label>
+				<!-- <input type="number" id="phone" name="phone-number"> -->
+				<select id="locationDataOne">
+					<option>shared with manufacturer</option>
+					<option>not shared</option>
+				</select>
+				<select id="locationDataTwo">
+					<option>sold to third party</option>
+					<option>not sold</option>
+				</select>
+			  </div>
+			  <button type="button" class="previous-btn">Prev</button>
+			  <button type="button" class="next-btn">Next</button>
+			</div>
+	  
+			<div class="step step-3">
+				<div id="header">
+					<h2 id="subtitle3" class="visual">SENSOR</h2>
+				</div>
+			  <div class="form-group">
+				<label for="sensorPurpose">Purpose</label>
+				<input type="text" id="sensorPurpose" name="sensor-purpose">
+			  </div>
+			  <div class="form-group">
+				<label for="sensorType">Type</label>
+				<input type="text" id="sensorType" name="sensor-type">
+			  </div>
+			  <div class="form-group">
+				<label for="sensorUpdates">Updates</label>
+				<!-- <input type="number" id="phone" name="phone-number"> -->
+				<select id="sensorUpdatesOne">
+					<option>automatic</option>
+					<option>manual</option>
+					<option>no updates</option>
+				</select>
+				<select id="sensorUpdatesTwo">
+					<option>changeable</option>
+					<option>not changeable</option>
+				</select>
+				<select id="sensorUpdatesThree">
+					<option>encrypted</option>
+					<option>not encrypted</option>
+				</select>
+			  </div>
+			  <div class="form-group">
+				<label for="sensorData">Data</label>
+				<!-- <input type="number" id="phone" name="phone-number"> -->
+				<select id="sensorDataOne">
+					<option>shared with manufacturer</option>
+					<option>not shared</option>
+				</select>
+				<select id="sensorDataTwo">
+					<option>sold to third party</option>
+					<option>not sold</option>
+				</select>
+			  </div>
+			  <button type="button" class="previous-btn">Prev</button>
+			  <button type="button" class="next-btn">Next</button>
+			</div>
+
+			<div class="step step-4">
+				<div id="header">
+					<h2 id="subtitle4" class="audio">AUDIO</h2>
+				</div>
+			  <div class="form-group">
+				<label for="audioPurpose">Purpose</label>
+				<input type="text" id="audioPurpose" name="audio-purpose">
+			  </div>
+			  <div class="form-group">
+				<label for="audioType">Type</label>
+				<input type="text" id="audioType" name="audio-type">
+			  </div>
+			  <div class="form-group">
+				<label for="audioUpdates">Updates</label>
+				<!-- <input type="number" id="phone" name="phone-number"> -->
+				<select id="audioUpdatesOne">
+					<option>automatic</option>
+					<option>manual</option>
+					<option>no updates</option>
+				</select>
+				<select id="audioUpdatesTwo">
+					<option>changeable</option>
+					<option>not changeable</option>
+				</select>
+				<select id="audioUpdatesThree">
+					<option>encrypted</option>
+					<option>not encrypted</option>
+				</select>
+			  </div>
+			  <div class="form-group">
+				<label for="audioData">Data</label>
+				<!-- <input type="number" id="phone" name="phone-number"> -->
+				<select id="audioDataOne">
+					<option>shared with manufacturer</option>
+					<option>not shared</option>
+				</select>
+				<select id="audioDataTwo">
+					<option>sold to third party</option>
+					<option>not sold</option>
+				</select>
+			  </div>
+			  <button type="button" class="previous-btn">Prev</button>
+			  <button type="button" class="next-btn" >Print</button>
+			  <button id="submit">Submit</button>
+			</div>
+	  
+		  </form>
+		</div>
+	  </section>
+
 	<script src="form.js"></script>
 </body>
 </html>
